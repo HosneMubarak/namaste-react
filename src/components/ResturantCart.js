@@ -2,7 +2,8 @@ import { CDN_URL } from "../utils/constants";
 
 const ResturantCart = (props) => {
   const { restObjList } = props;
-  const { name, cuisines, avgRating, cloudinaryImageId } = restObjList;
+  const { name, cuisines, avgRating, cloudinaryImageId } =
+    restObjList.card.card.info;
   return (
     <div className="res-card">
       <img
