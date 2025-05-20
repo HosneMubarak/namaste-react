@@ -68,6 +68,7 @@
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-refresh": "^0.16.0",
+    "react-router-dom": "^7.6.0",
     "regenerator-runtime": "^0.14.1",
     "resolve-from": "^4.0.0",
     "safe-buffer": "^5.2.1",

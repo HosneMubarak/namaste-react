@@ -1,7 +1,8 @@
 import ResturantCart from "../components/ResturantCart";
-import restObjList from "../utils/mockData";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router";
+import { RES_LIST_API } from "../utils/constants";
 
 const Body = () => {
   // const [FilteredlistOfResturant, setFilteredlistOfResturant] = useState([]);
@@ -14,9 +15,7 @@ const Body = () => {
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch(
-      "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.0759837&lng=72.8776559&collection=80455&tags=&sortBy=&filters=&type=rcv2&offset=0&page_type=null"
-    );
+    const data = await fetch(RES_LIST_API);
     const json = await data.json();
     console.log(json.data.cards.slice(3));
     setlistOfResturant(json.data?.cards?.slice(3));
@@ -62,10 +61,12 @@ const Body = () => {
       </div>
       <div className="res-container">
         {listFilterOfResturant.map((resturant) => (
-          <ResturantCart
+          <Link
             key={resturant.card.card.info.id}
-            restObjList={resturant}
-          />
+            to={"/resturant/" + resturant.card.card.info.id}
+          >
+            <ResturantCart restObjList={resturant} />
+          </Link>
         ))}
       </div>
     </div>
