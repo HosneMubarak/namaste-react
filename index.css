@@ -63,3 +63,9 @@
 .search-btn {
   margin-right: 10px;
 }
+
+.user-card {
+  border: 1px black solid;
+  margin-top: 10x;
+  padding: 10px;
+}
