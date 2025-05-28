@@ -20,9 +20,9 @@ class UserClass extends React.Component {
   render() {
     const { name, company } = this.state.userInfo;
     return (
-      <div className="user-card">
-        <h3>Name : {name}</h3>
-        <h3>Company: {company}</h3>
+      <div className="bg-gray-100">
+        <h3 className="text-gray-700">Name : {name}</h3>
+        <h3 className="text-gray-700">Company: {company}</h3>
       </div>
     );
   }

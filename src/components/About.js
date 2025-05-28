@@ -18,7 +18,7 @@ class About extends Component {
 
   render() {
     return (
-      <div>
+      <div className="p-4 m-4">
         <h2>About us</h2>
         <UserClass />
       </div>

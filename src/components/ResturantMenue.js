@@ -9,14 +9,18 @@ const ResturantMenue = () => {
   return resInfo == null ? (
     <Shimmer />
   ) : (
-    <div className="Menue">
-      <h1>{resInfo.data?.cards[2]?.card?.card?.info?.name}</h1>
-      <h2>{resInfo.data.cards[2].card.card.info.cuisines.join()}</h2>
-      <h1>Menue:</h1>
+    <div className="p-4 m-4">
+      <h1 className="font-bold text-lg">
+        {resInfo.data?.cards[2]?.card?.card?.info?.name}
+      </h1>
+      <h2 className="font-bold">
+        {resInfo.data.cards[2].card.card.info.cuisines.join()}
+      </h2>
+      <h1 className="font-bold">Menue:</h1>
       <ul>
         {resInfo?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards?.map(
           (item) => (
-            <li key={item?.card?.info?.id}>
+            <li className="text-ellipsis" key={item?.card?.info?.id}>
               {item?.card?.info?.name} - Rs.{" "}
               {item?.card?.info?.price / 100 ||
                 item?.card?.info?.defaultPrice / 100}

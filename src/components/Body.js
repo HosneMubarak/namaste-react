@@ -33,16 +33,16 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className="body">
-      <div className="search">
+      <div className="flex">
         <input
           type="text"
-          className="search-input"
+          className="rounded border-solid border-black"
           onChange={(e) => {
             setsearchText(e.target.value);
           }}
         />
         <button
-          className="search-btn"
+          className="px-4 bg-green-400 m-4 rounded"
           onClick={() => {
             console.log(searchText);
             const filtedResturents = listOfResturant.filter((res) =>
@@ -56,6 +56,7 @@ const Body = () => {
           Search
         </button>
         <button
+          className="bg-green-400 m-4 py-2 px-4 rounded"
           onClick={() => {
             const filterList = listOfResturant.filter(
               (res) => res.card.card.info.avgRating >= 4.6
@@ -66,7 +67,7 @@ const Body = () => {
           Top rated Resturant
         </button>
       </div>
-      <div className="res-container">
+      <div className="flex flex-wrap">
         {listFilterOfResturant.map((resturant) => (
           <Link
             key={resturant.card.card.info.id}
