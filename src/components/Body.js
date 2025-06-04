@@ -1,15 +1,20 @@
-import ResturantCart from "../components/ResturantCart";
-import { useState, useEffect } from "react";
+import ResturantCart, {
+  promotedResturantCart,
+} from "../components/ResturantCart";
+import { useState, useEffect, useContext } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router";
 import { RES_LIST_API } from "../utils/constants";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/userContext";
 
 const Body = () => {
   // const [FilteredlistOfResturant, setFilteredlistOfResturant] = useState([]);
   const [listOfResturant, setlistOfResturant] = useState([]);
   const [listFilterOfResturant, setlistFilterOfResturant] = useState([]);
   const [searchText, setsearchText] = useState("");
+  const ResturantCartWithPromoted = promotedResturantCart(ResturantCart);
+  const { LoggedInUser, setUserInfo } = useContext(UserContext);
 
   useEffect(() => {
     fetchData();
@@ -66,6 +71,15 @@ const Body = () => {
         >
           Top rated Resturant
         </button>
+        <div className="p-4">
+          <label htmlFor="">UserName: </label>
+          <input
+            type="text"
+            className="border-solid border-black"
+            value={LoggedInUser}
+            onChange={(e) => setUserInfo(e.target.value)}
+          />
+        </div>
       </div>
       <div className="flex flex-wrap">
         {listFilterOfResturant.map((resturant) => (
@@ -73,7 +87,11 @@ const Body = () => {
             key={resturant.card.card.info.id}
             to={"/resturant/" + resturant.card.card.info.id}
           >
-            <ResturantCart restObjList={resturant} />
+            {resturant.card.card.info.promoted ? (
+              <ResturantCartWithPromoted restObjList={resturant} />
+            ) : (
+              <ResturantCart restObjList={resturant} />
+            )}
           </Link>
         ))}
       </div>
