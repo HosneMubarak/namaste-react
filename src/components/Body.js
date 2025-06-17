@@ -23,7 +23,6 @@ const Body = () => {
   const fetchData = async () => {
     const data = await fetch(RES_LIST_API);
     const json = await data.json();
-    console.log(json.data.cards.slice(3));
     setlistOfResturant(json.data?.cards?.slice(3));
     setlistFilterOfResturant(json.data?.cards?.slice(3));
   };
