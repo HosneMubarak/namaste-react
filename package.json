@@ -87,13 +87,23 @@
     "weak-lru-cache": "^1.2.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.27.4",
+    "@babel/preset-env": "^7.27.2",
+    "@babel/preset-react": "^7.27.1",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
     "autoprefixer": "^10.4.21",
+    "babel-jest": "^30.0.0",
+    "i": "^0.3.7",
+    "jest": "^30.0.0",
+    "jest-environment-jsdom": "^30.0.0",
     "parcel": "^2.14.4",
     "postcss": "^8.5.3",
     "tailwindcss": "^3.4.17"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "parcel index.html",
     "build": "parcel build index.html"
   },
